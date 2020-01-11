@@ -128,6 +128,7 @@ def run_summarization(text):
     return summary
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
+def main():
     result = run_summarization(text_str)
     print(result)

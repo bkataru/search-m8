@@ -34,4 +34,6 @@ for link in link_list[0:1]:
     content_dict[link] = site_parsed
     
 # print(content_dict)
-output.write(str(content_dict))
+# output.write(str(content_dict))
+
+summary.main()
