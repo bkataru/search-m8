@@ -133,6 +133,7 @@ def main(dict):
     summary_dict = {}
     for x in dict:
         content = dict[x]
+        
         result = run_summarization(content)
         summary_dict[x] = result
         
