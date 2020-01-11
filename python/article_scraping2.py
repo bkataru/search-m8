@@ -26,12 +26,26 @@ for link in links:
 
 content_dict = {}
 
-for link in link_list[0:1]:
+for link in link_list:
     site = requests.get(link, headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'})
     site_html = bs4.BeautifulSoup(site.text, 'html.parser')
-    site_parsed = site_html.select('p')
-    # site_parsed=site_parsed.prettify()
-    content_dict[link] = site_parsed
+    site_parsed = site_html.findAll('p')
+    content_list = []
+    for x in site_parsed:
+        # print(x.text)
+        content_list.append(x.text)
+    
+    # site_parsed=site_parsed.prettify
+    content_dict[link] = str(" ".join(content_list))
+    # print("\n\n".join(content_list))
+
+    print(content_dict)
+    
+    
+#print(content_dict)
+#summary.main(content_dict)
     
 # print(content_dict)
-output.write(str(content_dict))
+# output.write(str(content_dict))
+
+    
