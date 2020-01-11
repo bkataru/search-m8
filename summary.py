@@ -58,13 +58,13 @@ def _score_sentences(sentences, freqTable) -> dict:
         for wordValue in freqTable:
             if wordValue in sentence.lower():
                 word_count_in_sentence_except_stop_words += 1
-                if sentence[:10] in sentenceValue:
-                    sentenceValue[sentence[:10]] += freqTable[wordValue]
+                if sentence[:5] in sentenceValue:
+                    sentenceValue[sentence[:5]] += freqTable[wordValue]
                 else:
-                    sentenceValue[sentence[:10]] = freqTable[wordValue]
+                    sentenceValue[sentence[:5]] = freqTable[wordValue]
 
-        if sentence[:10] in sentenceValue:
-            sentenceValue[sentence[:10]] = sentenceValue[sentence[:10]] / word_count_in_sentence_except_stop_words
+        if sentence[:5] in sentenceValue:
+            sentenceValue[sentence[:5]] = sentenceValue[sentence[:5]] / word_count_in_sentence_except_stop_words
 
         '''
         Notice that a potential issue with our score algorithm is that long sentences will have an advantage over short sentences. 
@@ -97,7 +97,7 @@ def _generate_summary(sentences, sentenceValue, threshold):
     summary = ''
 
     for sentence in sentences:
-        if sentence[:10] in sentenceValue and sentenceValue[sentence[:10]] >= (threshold):
+        if sentence[:5] in sentenceValue and sentenceValue[sentence[:5]] >= (threshold):
             summary += " " + sentence
             sentence_count += 1
 
@@ -116,14 +116,14 @@ def run_summarization(text):
     # 2 Tokenize the sentences
     sentences = sent_tokenize(text)
 
-    # 3 Important Algorithm: score the sentences
+    # 5 Important Algorithm: score the sentences
     sentence_scores = _score_sentences(sentences, freq_table)
 
     # 4 Find the threshold
     threshold = _find_average_score(sentence_scores)
 
     # 5 Important Algorithm: Generate the summary
-    summary = _generate_summary(sentences, sentence_scores, 1.3 * threshold)
+    summary = _generate_summary(sentences, sentence_scores, 1 * threshold)
 
     return summary
 

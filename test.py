@@ -15,4 +15,4 @@ r = sr.Recognizer()
 with sr.AudioFile(AUDIO_FILE) as source:
         audio = r.record(source)  # read the entire audio file                  
 
-        print("Transcription: " + r.recognize_google(audio))
+        print("Transcription: " + r.recognize_sphinx(audio))
