@@ -13,11 +13,21 @@ from sumy.summarizers.lsa import LsaSummarizer as Summarizer
 from sumy.nlp.stemmers import Stemmer
 from sumy.utils import get_stop_words
 
+#nostril
+#sumy
+#youtube transcriber
+# youtube-search
+
+# sumy - 4 different algos
+# youtube transcriber - different languages
+
+
+
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'}
 # search="Subsidies in UK"
 search=input("Enter Keywords: ")
-address='http://www.google.com/search?q='+search
+address='http://www.google.com/search?q='+search + '&gl=US'
 res=requests.get(address,headers=headers)
 soup=bs4.BeautifulSoup(res.text,'html.parser')
 links=soup.select('div.r a')

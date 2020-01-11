@@ -1,8 +1,82 @@
 <nav>
     <div class="nav-wrapper">
-        <i class="material-icons">content_cut</i>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <i class="material-icons logo">content_cut</i>
+        <ul id="nav-mobile" class="right hide-on-med-and-down" style="float: right; top: -30px;">
         <li><a href="/">Home</a></li>
       </ul>
     </div>
 </nav>
+<br><br>
+<div class="container">
+    <div class="row">        
+        <form>
+              <input type="text" ng-model="searchResult" name="search">
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a class="active" href="#test1">Websites</a></li>
+        <li class="tab col s6"><a href="#test2">Videos</a></li>
+      </ul>
+    </div>
+    <div id="test1">
+        <table class="col s12">
+            <thead>
+                <!-- <center> -->
+                    <th class="heading col s3 center-align">Website/Title Heading</th>
+                    <th class="summary col s6 center-align">Article Summary</th>
+                    <th class="tags col s3 center-align">Tags</th>
+                <!-- </center> -->
+            </thead>
+            <!-- <tbody> -->
+                <tr class="website">
+                    <td class="heading col s3"><a href="https://loremipsum.io/">https://loremipsum.io/</a></td>
+                    <div><td class="col s6"><div class="truncate">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><span><a href="#expanded_summary_modal" class="modal-trigger">[Read more...]</a></span></td>
+                    </div>
+                    <td class="col s3"></td>
+                </tr>
+            <!-- </tbody> -->
+        </table>
+    </div>
+    <div id="test2" class="col s12">
+    <table class="col s12">
+            <thead>
+                <!-- <center> -->
+                    <th class="heading col s3 center-align">Website/Title Heading</th>
+                    <th class="summary col s6 center-align">Article Summary</th>
+                    <th class="tags col s3 center-align">Tags</th>
+                <!-- </center> -->
+            </thead>
+            <!-- <tbody> -->
+                <tr class="website">
+                    <td class="heading col s3"><a href="https://loremipsum.io/"><img src="https://i.ytimg.com/vi/xGjpTjeGuZc/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDAMKhwoGYDdOrg8jCj9LHFy3R2Fw">
+Modern Thought and Culture in 1900: Crash Course European History #31 [15:09]</a></td>
+                    <div><td class="col s6"><div class="truncate">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><span><a class="modal-trigger" href="#expanded_summary_modal">[Read more...]</a></span></td>
+                    </div>
+                    <td class="col s3"></td>
+                </tr>
+            <!-- </tbody> -->
+        </table>  
+    </div>
+  </div>
+
+<div class="modal" id="expanded_summary_modal">
+    <div class="modal-content">
+        <center><h4>Full summary</h4></center>
+        <div class="summary-modal-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+    </div>
+</div>
+
+<script>
+      $(document).ready(function(){
+            $('.tabs').tabs();
+            $('.modal').modal();
+          });
+</script>

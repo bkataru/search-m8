@@ -1,3 +1,8 @@
+.logo{
+    margin-left: 100px !important;
+    display: flex;
+}
+
 .link_container{
     border: solid 2px blue;
     height: 50px;
@@ -19,4 +24,58 @@ input[name="search"]{
     border-right: 1px solid #9e9e9e !important;
     border-radius: 10px !important;
     padding: 10px !important;
+}
+
+th{
+    font-size: 20px;
+    padding: 20px !important;
+}
+
+.heading, .tags{
+    width: 25% !important;
+}
+
+.summary{
+    width: 50% !important;
+    border-left: solid 1px grey;
+    border-right: solid 1px grey;
+}
+
+td{
+    /* border-left: solid 1px grey;
+    border-right: solid 1px grey; */
+    height: inherit;
+}
+
+table{
+    table-layout: fixed;
+    width: 100%;
+    font-size: 125%;
+}
+
+td.website{
+    height: 40px !important;
+    padding: 10px;
+    
+}
+
+
+table td > div {
+    overflow: hidden;
+    height: 100px;
+    padding: 10px;
+}
+
+
+table a.modal-trigger{
+    /* display: inline-flex; */
+    float: right;
+}
+
+table img{
+    padding: 10px;
+}
+
+#expanded_summary_modal{
+    margin-top: 150px;
 }
