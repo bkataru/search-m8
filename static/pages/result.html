@@ -1,82 +1,142 @@
 <nav>
-    <div class="nav-wrapper">
-        <i class="material-icons logo">content_cut</i>
-        <ul id="nav-mobile" class="right hide-on-med-and-down" style="float: right; top: -30px;">
-        <li><a href="/">Home</a></li>
-      </ul>
+    <div class="nav-wrapper blue-grey darken-4">
+        <ul class="left hide-on-med-and-down" style="margin-left: 50px;"><i>search m8</i>
+        </ul>
+        <ul class="right hide-on-med-and-down"><a href="/">Home</a>
+        </ul>
     </div>
 </nav>
-<br><br>
+<br>
+<br>
 <div class="container">
-    <div class="row">        
-        <form>
-              <input type="text" ng-model="searchResult" name="search">
-        </form>
+    <div class="row">
+        <center>
+            <h1 style="font-family: 'Segoe UI Light';">
+                You searched for: '{{ resultData.text }}'
+            </h1>
+        </center>
     </div>
 </div>
 
-<div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s6"><a class="active" href="#test1">Websites</a></li>
-        <li class="tab col s6"><a href="#test2">Videos</a></li>
-      </ul>
-    </div>
-    <div id="test1">
-        <table class="col s12">
-            <thead>
-                <!-- <center> -->
-                    <th class="heading col s3 center-align">Website/Title Heading</th>
-                    <th class="summary col s6 center-align">Article Summary</th>
-                    <th class="tags col s3 center-align">Tags</th>
-                <!-- </center> -->
-            </thead>
-            <!-- <tbody> -->
-                <tr class="website">
-                    <td class="heading col s3"><a href="https://loremipsum.io/">https://loremipsum.io/</a></td>
-                    <div><td class="col s6"><div class="truncate">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><span><a href="#expanded_summary_modal" class="modal-trigger">[Read more...]</a></span></td>
-                    </div>
-                    <td class="col s3"></td>
-                </tr>
-            <!-- </tbody> -->
-        </table>
-    </div>
-    <div id="test2" class="col s12">
-    <table class="col s12">
-            <thead>
-                <!-- <center> -->
-                    <th class="heading col s3 center-align">Website/Title Heading</th>
-                    <th class="summary col s6 center-align">Article Summary</th>
-                    <th class="tags col s3 center-align">Tags</th>
-                <!-- </center> -->
-            </thead>
-            <!-- <tbody> -->
-                <tr class="website">
-                    <td class="heading col s3"><a href="https://loremipsum.io/"><img src="https://i.ytimg.com/vi/xGjpTjeGuZc/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDAMKhwoGYDdOrg8jCj9LHFy3R2Fw">
-Modern Thought and Culture in 1900: Crash Course European History #31 [15:09]</a></td>
-                    <div><td class="col s6"><div class="truncate">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><span><a class="modal-trigger" href="#expanded_summary_modal">[Read more...]</a></span></td>
-                    </div>
-                    <td class="col s3"></td>
-                </tr>
-            <!-- </tbody> -->
-        </table>  
-    </div>
-  </div>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s6">
+                    <a class="active" href="#websites">Web pages</a>
+                </li>
+                <li class="tab col s6">
+                    <a href="#videos">Videos</a>
+                </li>
+            </ul>
+        </div>
+        <div id="websites">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card blue-grey darken-4 col s12">
+                        <div class="card-content white-text">
+                            <table class="responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th>Page Title</th>
+                                        <th>Page Summary</th>
+                                        <th>Tags</th>
+                                    </tr>
+                                </thead>
 
-<div class="modal" id="expanded_summary_modal">
-    <div class="modal-content">
-        <center><h4>Full summary</h4></center>
-        <div class="summary-modal-content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                <tbody>
+                                    <tr ng-repeat="(key, value) in resultData.text_data">
+                                        <td><h5>{{ value.title }}</h5></td>
+                                        <td>
+                                            <a href="" ng-click="openTextModal(key)">
+                                                <p class="truncate">{{ value.summary }}</p>
+                                                </a>
+                                        </td>
+                                        <td style="word-wrap: break-word;"><a>{{ value.keywords }}</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="videos">
+            <div class="row" ng-show="resultData.video_data.length == 0">
+                <p class="flow-text">
+                    There are no transcribable videos available in the parameters specified.
+                </p>
+            </div>
+            <div class="row" ng-show="resultData.video_data.length > 0">
+                <div class="col s12">
+                    <div class="card blue-grey darken-4 col s12">
+                        <div class="card-content white-text">
+                            <table class="responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th>Video</th>
+                                        <th>Video Summary</th>
+                                        <th>Tags</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="vid in resultData.video_data">
+                                        <td><ng-youtube-embed 
+    video="videoUrlArr[resultData.video_data.indexOf(vid)]" 
+    autoplay="false"
+    color="white"
+    disablekb="false"
+    width="320px"
+    height="260px">
+</ng-youtube-embed></td>
+                                        <td>
+                                            <a href="" ng-click="openVideoModal(resultData.video_data.indexOf(vid))">
+                                                <p class="truncate">{{ vid.summary }}</p>
+                                                </a>
+                                        </td>
+                                        <td style="word-wrap: break-word;"><a>{{ vid.keywords }}</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="modal" id="expanded_summary_text_modal">
+        <div class="modal-content blue-grey darken-4">
+            <center>
+                <h4>Full summary</h4>
+            </center>
+            <div class="summary-modal-content">
+                <h5 style="line-height: 0.75cm;">
+                    {{ text_modal_desc }}
+                </h5>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="expanded_summary_video_modal">
+        <div class="modal-content blue-grey darken-4">
+            <center>
+                <h4>Full summary</h4>
+            </center>
+            <div class="summary-modal-content">
+                <h5 style="line-height: 0.75cm;">
+                    {{ video_modal_desc }}
+                </h5>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script>
-      $(document).ready(function(){
-            $('.tabs').tabs();
-            $('.modal').modal();
-          });
-</script>
+    $(document).ready(function() {
+        $('.tabs').tabs();
+        $('.modal').modal();
+    });
+</script> 

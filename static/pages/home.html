@@ -1,19 +1,63 @@
-
-<div class="container center-align home-main-container">
-   <div class="row">
-       <h1>
-           search m8
-       </h1>
-       <hr>
-   </div>
-   <div class="container">
-       <div class="row search-bar-row">
-       <form method="POST">
-           <input type="text" ng-model="searchResult" name="search">
-           <input type="submit" ng-click="search()" class="btn-large cyan">
-       </form>
-   </div>
+<br>
+<div class="container center-align home-main-container valign-wrapper">
+    <div class="card blue-grey darken-4">
+        <div class="card-content white-text">
+            <span class="card-title">
+           <h1 style="font-family: 'Segoe UI Light';">
+                    <b>Search m8</b>
+                </h1>
+            <!-- <img src='searchm8.png' /> -->
+            </span>
+            <div class="card-description">
+                <h5>
+                    8 hours of research in 8 minutes
+                </h5>
+            </div>
+            
+            <div class="row center-aligned" ng-show="loading">
+                <div class="preloader-wrapper big active" style="width: 100px; height: 100px; margin-top: 50px;">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row search-bar-row">
+                    <input type="text" ng-model="searchResult" name="search">
+                    <input type="submit" ng-click="search()" class="btn-large cyan waves-effect">
+                </div>
+                <div class="row">
+                    <div class="col s5 left">
+                        <input type="number" ng-model="sentence_count_article" name="sentence_count_article">
+                        <label for="sentence_count_article" class="white-text">Enter preferred sentence count on article summary</label>
+                    </div>
+                    <div class="col s5 right">
+                        <input type="number" ng-model="sentence_count_video" name="sentence_count_video">
+                        <label for="sentence_count_video" class="white-text">Enter preferred sentence count on video summary</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5 left">
+                        <input type="number" ng-model="no_article" name="no_article">
+                        <label for="no_article" class="white-text">Enter maximum number of web articles to analyze</label>
+                    </div>
+                    <div class="col s5 right">
+                        <input type="number" ng-model="no_video" name="no_video">
+                        <label for="no_video" class="white-text">Enter maximum number of videos to analyze</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
     </div>
-    <br>
-    <br>
+
 </div>

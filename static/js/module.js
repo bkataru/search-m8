@@ -1,14 +1,17 @@
 var app = angular.module("searchm8");
 app.service('moduleService', function($http) {
     var moduleService = [];
-    moduleService.search = function(text) {
+    moduleService.search = function(text, video_count, text_count, no_article, no_video) {
+        // no_video: number of videos to search through
+        // video_count: number of sentences for summary
        return $http({
             method: "GET",
-            url: `./searchQuery?query=` + text,
+            url: `./searchQuery?query=` + text + '&video_sentence_count=' + video_count + '&text_sentence_count=' + text_count
+            + '&no_article=' + no_article + '&no_video=' + no_video,
             headers: { 'Content-Type': 'application/json' },
         }).then(function(responses) {
-            console.log(responses.data.results);
-            return responses.data.results;
+            console.log(responses.data);
+            return responses.data;
         });
     };
     

@@ -10,20 +10,26 @@
 }
 
 .search-bar-row{
-    margin-top: 200px !important;
+    margin-top: 100px !important;
 }
 
 .home-main-container{
     height: 100% !important;
 }
 
+input[type="text"], input[type="number"]{
+    color: cyan;
+    font-size: 200% !important;
+    text-align: center;
+}
 
 input[name="search"]{
     border-top: 1px solid #9e9e9e !important;
     border-left: 1px solid #9e9e9e !important;
     border-right: 1px solid #9e9e9e !important;
-    border-radius: 10px !important;
+    /* border-radius: 10px !important; */
     padding: 10px !important;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 th{
@@ -78,4 +84,31 @@ table img{
 
 #expanded_summary_modal{
     margin-top: 150px;
+}
+
+body {
+    background-image: url("../images/bg-min.jpg");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+label{
+    font-size: 110%;
+}
+
+.home-main-container.card-title{
+    background-image: url('../images/searchm8.png') center no-repeat;      
+    
+}
+
+.tabs .indicator {
+    background-color: white !important;
+}
+
+.tab a {
+    color: white !important;
+    background-color: #263238 !important;
 }
